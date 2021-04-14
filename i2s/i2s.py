@@ -16,12 +16,12 @@ def read_location_csv(filename):
     return locations
 
 
-def generate_tambons(persons, particles, actions, from_str, to_str, locations):
+def generate_tambons(persons, auxillary_verbs, actions, from_str, to_str, locations):
     random.shuffle(locations)
     sentences = set()
 
     for i,k in zip(locations[0::2], locations[1::2]):
-        new_text = "%s%s%sจาก%s %s ไป%s %s" % (ch(persons), ch(particles), ch(actions), i[2], i[1], k[2], k[1])
+        new_text = "%s%s%sจาก%s %s ไป%s %s" % (ch(persons), ch(auxillary_verbs), ch(actions), i[2], i[1], k[2], k[1])
         sentences.add(new_text)
 
     return sentences
@@ -30,11 +30,11 @@ if __name__ == "__main__":
     PERSONS = ["พ่อ","แม่","เรา","วี", "ตาล", "ต้น", 
                 "ชาลี", "แดง", "ฟ้า", "มานะ", "มานี",
                 "ปิติ", "ชูใจ"]
-    PARTICLE = ["เคย","จะ"]
+    AUXILLARY_VERB = ["เคย","จะ",""]
     ACTION = ["ปั่นจักรยาน", "ขับรถ"]
     FROM = ["จาก"]
     TO = ["ไป"]
     f = "../data/geocode-1.csv"
     locations = read_location_csv(f)
-    for t in generate_tambons(PERSONS, PARTICLE, ACTION, FROM, TO, locations):
+    for t in generate_tambons(PERSONS, AUXILLARY_VERB, ACTION, FROM, TO, locations):
         print(t)
