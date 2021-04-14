@@ -27,7 +27,9 @@ def generate_tambons(persons, particles, actions, from_str, to_str, locations):
     return sentences
 
 if __name__ == "__main__":
-    PERSONS = ["พ่อ","แม่","เรา"]
+    PERSONS = ["พ่อ","แม่","เรา","วี", "ตาล", "ต้น", 
+                "ชาลี", "แดง", "ฟ้า", "มานะ", "มานี",
+                "ปิติ", "ชูใจ"]
     PARTICLE = ["เคย","จะ"]
     ACTION = ["ปั่นจักรยาน", "ขับรถ"]
     FROM = ["จาก"]
